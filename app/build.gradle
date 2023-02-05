@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.protobuf'
+
+android {
+    compileSdkVersion 32
+    defaultConfig {
+        applicationId "cn.com.easysec.demo.jsse"
+        minSdkVersion 23
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        packagingOptions
+                {
+                    exclude'META-INF/DEPENDENCIES'
+                }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '30.0.2'
+}
+
+protobuf {
+    protoc { artifact = 'com.google.protobuf:protoc:3.17.2' }
+    plugins {
+        javalite { artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0" }
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.42.1' // CURRENT_GRPC_VERSION
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java { option 'lite' }
+            }
+            task.plugins {
+                grpc { // Options added to --grpc_out
+                    option 'lite'
+                }
+            }
+        }
+    }
+    //配置proto生成java代码的目录 (可选)
+//    generatedFilesBaseDir = "$projectDir/src/generated"
+}
+
+
+
+def grpcVersion = '1.51.0' // CURRENT_GRPC_VERSION
+def protobufVersion = '3.21.7'
+def protocVersion = protobufVersion
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:+'
+//    implementation files('libs/easysec-jce-1.0.2.jar')
+//    implementation files('libs/easysec-tls-1.0.2.jar')
+//    implementation files('libs/easysec-util-1.0.2.jar')
+    implementation 'org.apache.httpcomponents:httpcore:4.4.15'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation project (':lib')
+
+    implementation files('libs/gson-2.8.0.jar')
+
+//    implementation 'io.grpc:grpc-okhttp:1.42.1' {
+//        exclude
+//    }
+    implementation 'io.grpc:grpc-protobuf-lite:1.42.1' // CURRENT_GRPC_VERSION
+    implementation 'io.grpc:grpc-stub:1.42.1' // CURRENT_GRPC_VERSION
+    implementation 'org.apache.tomcat:annotations-api:6.0.53'
+}

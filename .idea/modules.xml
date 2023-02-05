@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TLS-Demo.iml" filepath="$PROJECT_DIR$/.idea/modules/TLS-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TLS-Demo.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/TLS-Demo.lib.test.iml" />
+    </modules>
+  </component>
+</project>

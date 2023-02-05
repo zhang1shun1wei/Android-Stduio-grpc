@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "cn.com.easysec.micar.jsse";
+option java_outer_classname = "CertVerifyProto";
+option objc_class_prefix = "HLW";
+
+package jsse;
+
+message IdentityCertParam {
+  string cert = 1;
+}
+
+message X509CertChainParam {
+  string chain = 1;
+}
+
+message generateSignatureParam {
+  bytes signature = 1;
+}
+
+
+service CertVerify {
+  rpc getIdentityCert(google.protobuf.Empty) returns(IdentityCertParam) {}
+  rpc getX509CertChain(google.protobuf.Empty) returns(X509CertChainParam) {}
+  rpc generateSignature(generateSignatureParam) returns (generateSignatureParam) {}
+}
